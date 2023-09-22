@@ -3,6 +3,7 @@ package com.cs407.calculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 
 import android.content.Intent;
@@ -18,13 +19,10 @@ public class MainActivity extends AppCompatActivity {
         String value2 = myTextField2.getText().toString();
         int c = Integer.parseInt(value1);
         int d = Integer.parseInt(value2);
-        if(d == 0) {
-            Toast.makeText(MainActivity.this, "Output is undefined", Toast.LENGTH_SHORT).show();
-        } else {
-            int result = c + d;
-            String resultText = String.valueOf(result);
-            goToActivity(resultText);
-        }
+
+        int result = c + d;
+        String resultText = String.valueOf(result);
+        goToActivity(resultText);
     }
 
     public void subtractFunction(View view) {
@@ -59,12 +57,14 @@ public class MainActivity extends AppCompatActivity {
         String value2 = myTextField2.getText().toString();
         int c = Integer.parseInt(value1);
         int d = Integer.parseInt(value2);
-        int result = c / d;
-        if(Double.isInfinite(result)) {
-            Toast.makeText(MainActivity.this, "Output undefined", Toast.LENGTH_SHORT).show();
-        } else {
+        try {
+            int result = c / d;
             String resultText = String.valueOf(result);
             goToActivity(resultText);
+        } catch(Exception DivideByZero) {
+            Log.i("INFO", "Output undefined");
+            Toast.makeText(MainActivity.this, "Output is undefined", Toast.LENGTH_SHORT).show();
+            goToActivity("Output is undefined");
         }
     }
     public void goToActivity(String s) {
