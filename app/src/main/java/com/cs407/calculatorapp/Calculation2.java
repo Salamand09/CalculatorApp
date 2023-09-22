@@ -15,6 +15,6 @@ public class Calculation2 extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         Intent intent = getIntent();
         String str = intent.getStringExtra("message");
-        textView.setText("Hello " + str);
+        textView.setText(str);
     }
 }
