@@ -23,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
         EditText myTextField1 = (EditText) findViewById(R.id.textField1);
         EditText myTextField2 = (EditText) findViewById(R.id.textField2);
     }
+
+    public void multiplyFunction(View view) {
+        EditText myTextField1 = (EditText) findViewById(R.id.textField1);
+        EditText myTextField2 = (EditText) findViewById(R.id.textField2);
+    }
+
+    public void divideFunction(View view) {
+        EditText myTextField1 = (EditText) findViewById(R.id.textField1);
+        EditText myTextField2 = (EditText) findViewById(R.id.textField2);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
